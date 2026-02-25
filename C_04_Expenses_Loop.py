@@ -66,8 +66,13 @@ def get_expenses(exp_type):
 
 # main routine starts here
 
-print("Getting Variable Costs... ")
-variable_expenses = get_expenses("variable")
-num_variable = len(variable_expenses)
-print(f"You entered {num_variable} item")
-print()
+# print("Getting Variable Costs... ")
+# variable_expenses = get_expenses("variable")
+# num_variable = len(variable_expenses)
+# print(f"You entered {num_variable} item")
+# print()
+
+print("Getting fixed costs...")
+fixed_expenses = get_expenses("fixed")
+num_fixed = len(fixed_expenses)
+print(f"Yoy entered {num_fixed} items")
