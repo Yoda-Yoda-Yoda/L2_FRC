@@ -287,37 +287,47 @@ year = today.strftime("%Y")
 main_heading_string = make_statement(f"Fund Raising Calculator "
                                      f"({product_name}, {day}/{month}/{year})", "=")
 
-quantity_string = f"Quantity being made: {quantity_made}"
+quantity_string = f"\nQuantity being made: {quantity_made}\n"
 variable_heading_string = make_statement("Variable Expenses", "-")
-variable_subtotal_string = f"Variable Expenses Subtotal: ${variable_subtotal:.2f}"
+variable_subtotal_string = f"\nVariable Expenses Subtotal: ${variable_subtotal:.2f}\n"
 
 # set up string if we have fixed costs
 if has_fixed == "yes":
     fixed_heading_string = make_statement("Fixed Expenses", "-")
-    fixed_subtotal_string = f"Fixed Expenses Subtotal: {fixed_subtotal:.2f}"
+    fixed_subtotal_string = f"\nFixed Expenses Subtotal: {fixed_subtotal:.2f}\n"
 
 # set fixed cost string to blank if we don't have fixed costs
 else:
     fixed_heading_string = make_statement("You have no Fixed Expenses", "-")
-    fixed_subtotal_string = "Fixed Expenses Subtotal: $0.00"
+    fixed_subtotal_string = "\nFixed Expenses Subtotal: $0.00\n"
 
 selling_price_heading = make_statement("Selling Price Calculations", "-")
-profit_goal_string = f"Profit Goal: ${target:.2f}"
-sales_target_string = f"\nTotal Sales Needed: ${sales_target:.2f}"
+profit_goal_string = f"\nProfit Goal: ${target:.2f}"
+sales_target_string = f"Total Sales Needed: ${sales_target:.2f}"
 
-minimum_price_string = f"Minimum Selling Price: ${selling_price:.2f}"
+minimum_price_string = f"Minimum Selling Price: ${selling_price:.2f}\n"
 suggested_price_string = make_statement(f"Suggested Selling Price: "
                                         f"${suggested_price:.2f}", "*")
 
 # list of string to be outputted / written to file
-to_write = [main_heading_string,"\n", quantity_string,
-            "\n", variable_heading_string, "\n", variable_panda_string, "\n",
-            variable_subtotal_string,
-            "\n", fixed_heading_string, "\n", fixed_panda_string, "\n",
+# to_write = [main_heading_string,"\n", quantity_string,
+#             "\n", variable_heading_string, "\n", variable_panda_string, "\n",
+#             variable_subtotal_string,
+#             "\n", fixed_heading_string, "\n", fixed_panda_string, "\n",
+#             fixed_subtotal_string,
+#             "\n",selling_price_heading, "\n", total_expenses_string,
+#             "\n", profit_goal_string, "\n", sales_target_string, "\n",
+#             minimum_price_string, "\n", suggested_price_string
+#             ]
+
+to_write = [main_heading_string,  quantity_string, 
+            variable_heading_string, variable_panda_string,
+            variable_subtotal_string, 
+            fixed_heading_string,  fixed_panda_string,
             fixed_subtotal_string,
-            "\n",selling_price_heading, "\n", total_expenses_string,
-            "\n", profit_goal_string, "\n", sales_target_string, "\n",
-            minimum_price_string, "\n", suggested_price_string
+            selling_price_heading,  total_expenses_string,
+            profit_goal_string,  sales_target_string,
+            minimum_price_string, suggested_price_string
             ]
 
 # print area
@@ -333,3 +343,4 @@ text_file = open(write_to, "w+")
 
 for item in to_write:
     text_file.write(item)
+    text_file.write("\n")
